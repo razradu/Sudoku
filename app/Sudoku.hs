@@ -106,23 +106,3 @@ main = do
 --  putStrLn $ "Playing game number" ++ (show sudoku)
   playGame board1
 
-
-
-
-
-
-  -- text
-  -- citire
-   -- verificari
-
-     -- pun nr
-       -- afisez tabla
-       -- verificari table isBoardFull
-
-
-
-
--- 3 verificari: linie coloana patratel mic
-
--- daca nu e bine nu fac mutarea,
--- 0 pentru patratica goala
