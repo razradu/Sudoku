@@ -4,9 +4,20 @@ import HaskellSay (haskellSay)
 import qualified System.Process as SP
 
 clearScreen :: IO ()
-clearScreen = do  
+clearScreen = do 
   _ <- SP.system "reset"
   return ()
+
+sudokuMsg :: IO ()
+sudokuMsg = do
+  putStrLn "The Sudoku game works with a 9 x 9 board. Each cell can contain a number from 1 to 9."
+  putStrLn " The number in each cell must be unique in its line, column and smaller square."
+  putStrLn "  The board comes with few already filled in positions. Games courtesy of https://www.websudoku.com/"
+  putStrLn "Good luck!"
+  putStrLn "____________________________________________________________________________________________________"
+  putStrLn ""
+  putStrLn ""
+  
 
 type Row    = [Int]
 type Board  = [Row]
@@ -82,6 +93,7 @@ playGame b = do
   case check (x, y) n b of
     True -> do
       clearScreen
+      sudokuMsg
       let c = playMove n (x, y) b
       case isBoardFull c of
         True      -> putStrLn "Game completed. Congratulations !!"
@@ -90,11 +102,13 @@ playGame b = do
       case getNo (x, y) b of
         0 -> do
           clearScreen
+          sudokuMsg
           putStrLn "Number not satisfying conditions in that position!"
           putStrLn " "
           playGame b
         otherwise -> do
           clearScreen
+          sudokuMsg
           putStrLn $ "Position (" ++ (show x) ++ ", " ++ (show y) ++ ") already filled"
           playGame b
 
@@ -102,7 +116,8 @@ main :: IO ()
 main = do
 
   clearScreen
-
+  sudokuMsg
+  
   putStrLn "Which game do you want to play (1 - 10)?"
   putStrLn "1 - 3 Easy | 4 - 6 Medium | 7 - 9 Hard | 10 Evil"
   s <- getLine
