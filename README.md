@@ -1,2 +1,3 @@
 # Sudoku
-Cardano Dev final project
+Cardano Developer Associate @ Emurgo Academy
+--> final project <--
