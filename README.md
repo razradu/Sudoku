@@ -1,3 +1,3 @@
 # Sudoku
 Cardano Developer Associate @ Emurgo Academy
---> final project <--
+-- final project: Sudoku game 
